@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于"
+  },
+  "post": {
+    "publishedAt": "发布于",
+    "backToHome": "← 返回首页",
+    "notFound": "文章不存在",
+    "switchLang": "English Version"
+  },
+  "home": {
+    "title": "技术博客",
+    "subtitle": "记录技术思考与实践",
+    "noPost": "还没有文章"
+  }
+}

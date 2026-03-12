@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About"
+  },
+  "post": {
+    "publishedAt": "Published on",
+    "backToHome": "← Back to Home",
+    "notFound": "Post not found",
+    "switchLang": "中文版本"
+  },
+  "home": {
+    "title": "Tech Blog",
+    "subtitle": "Thoughts and practices on technology",
+    "noPost": "No posts yet"
+  }
+}

@@ -1,0 +1,25 @@
+# Nuxt
+.nuxt/
+.output/
+dist/
+
+# Dependencies
+node_modules/
+
+# Env - 永远不要 commit .env 文件
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
