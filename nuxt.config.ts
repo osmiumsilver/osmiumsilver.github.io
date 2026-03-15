@@ -1,6 +1,5 @@
 export default defineNuxtConfig({
     // ✅ 关键：纯 SPA，不要 SSR，不要 SSG
-    ssr: false,
     devtools: { enabled: false },
     // Nuxt 4 必须声明
     future: { compatibilityVersion: 4 },
@@ -25,6 +24,12 @@ export default defineNuxtConfig({
         defaultLocale: 'zh',
         strategy: 'prefix_except_default',
         // 结果：/ = 中文，/en/... = 英文
+    },
+    nitro: {
+        prerender: {
+            crawlLinks: true,   // 自动从首页爬所有链接
+            routes: ['/','/en'],      // 从根路径开始爬
+        }
     },
 
     // GitHub Pages 部署需要
