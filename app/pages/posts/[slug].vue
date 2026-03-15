@@ -45,13 +45,14 @@ const localePath = useLocalePath()
 const slug = route.params.slug as string
 
 const { data: post, pending } = useSanityQuery(
-    postBySlugQuery(slug, locale.value)
-)
-const { data: translations } = useSanityQuery(
-    postTranslationsQuery(slug)
+    postBySlugQuery,
+    { slug, language: locale }   // ← locale 是 Ref，slug 是普通字符串（固定的）
 )
 
-watch(locale, () => refresh())
+const { data: translations } = useSanityQuery(
+    postTranslationsQuery,
+    { slug }
+)
 
 const otherLangPost = computed(() =>
     translations.value?.find((t: any) => t.language !== locale.value)
@@ -65,7 +66,7 @@ function formatDate(dateStr: string) {
   )
 }
 
-useHead({ title: post.value?.title })
+useHead(computed(() => ({ title: post.value?.title })))
 </script>
 
 <style scoped>

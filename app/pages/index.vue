@@ -28,11 +28,8 @@ const localePath = useLocalePath()
 
 // @nuxtjs/sanity v2 用 useSanityQuery，传入 computed 响应式查询
 const { data: posts, pending, error } = useSanityQuery(
-    postsQuery(locale.value)
+    postsQuery,{language: locale}
 )
-
-// 语言切换时重新拉取
-watch(locale, () => refresh())
 
 function formatDate(dateStr: string) {
   if (!dateStr) return ''
