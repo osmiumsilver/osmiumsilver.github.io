@@ -12,7 +12,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
-
+  deployments: write  # ← 加这个
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -23,6 +23,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      # ↓ 部署之前先清理旧的
+      - name: Delete old deployments
+        uses: strumwolf/delete-deployment-environment@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: github-pages
+          onlyRemoveDeployments: true  # ← 只删 deployments，不删 environment
 
       - name: Setup Node
         uses: actions/setup-node@v4
