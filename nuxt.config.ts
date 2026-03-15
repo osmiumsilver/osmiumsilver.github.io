@@ -17,18 +17,17 @@ export default defineNuxtConfig({
 
     i18n: {
         locales: [
-            { code: 'zh', language: 'zh-CN', name: '中文' ,file: 'zh.json',},
-            { code: 'en', language: 'en-US', name: 'English' ,file: 'en.json',},
+            { code: 'en', language: 'en-US', name: 'English' ,file: 'en.json'},
+            { code: 'zh', language: 'zh-CN', name: '中文' ,file: 'zh.json'}
         ],
         langDir: 'locales/',
-        defaultLocale: 'zh',
-        strategy: 'prefix_except_default',
-        // 结果：/ = 中文，/en/... = 英文
+        defaultLocale: 'en',
+        strategy: 'prefix_and_default'
     },
     nitro: {
         prerender: {
             crawlLinks: true,   // 自动从首页爬所有链接
-            routes: ['/','/en'],      // 从根路径开始爬
+            routes: ['/','/zh'],      // 从根路径开始爬
         }
     },
 
